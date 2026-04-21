@@ -1,0 +1,23 @@
+{% extends 'trifonova/base.html' %}
+
+{% block title %}Заказ #{{ order.pk }}{% endblock %}
+
+{% block content %}
+<div class="detail-view">
+    <h1>📋 Заказ #{{ order.id }}</h1>
+    
+    <div class="detail-info">
+        <p><strong>Ученик:</strong> {{ order.User.FIO }}</p>
+        <p><strong>Услуга:</strong> {{ order.Service.name }}</p>
+        <p><strong>Преподаватель:</strong> {{ order.Performer.FIO }}</p>
+        <p><strong>Количество занятий:</strong> {{ order.quantity }}</p>
+        <p><strong>Цена за занятие:</strong> {{ order.Service.price }} руб.</p>
+        <p><strong>Общая стоимость:</strong> {% widthratio order.quantity 1 order.Service.price %} руб.</p>
+    </div>
+    
+    <div class="detail-actions">
+        <a href="{% url 'trifonova:order_update' order.pk %}" class="btn btn-primary">✏️ Редактировать</a>
+        <a href="{% url 'trifonova:order_list' %}" class="btn btn-secondary">← Назад к списку</a>
+    </div>
+</div>
+{% endblock %}

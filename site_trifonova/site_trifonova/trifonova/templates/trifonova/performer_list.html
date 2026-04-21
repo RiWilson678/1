@@ -1,0 +1,26 @@
+{% extends 'trifonova/base.html' %}
+
+{% block title %}Преподаватели{% endblock %}
+
+{% block content %}
+<div class="header-actions">
+    <h1>👨‍🏫 Наши преподаватели</h1>
+    <a href="{% url 'trifonova:performer_create' %}" class="btn btn-primary">+ Добавить преподавателя</a>
+</div>
+
+<div class="cards-container">
+    {% for performer in performers %}
+    <div class="card performer-card">
+        <h3>{{ performer.FIO }}</h3>
+        <p class="description">{{ performer.description }}</p>
+        <p class="service">💃 Направление: <strong>{{ performer.name.name }}</strong></p>
+        <div class="card-actions">
+            <a href="{% url 'trifonova:performer_detail' performer.pk %}" class="btn btn-small">Подробнее</a>
+            <a href="{% url 'trifonova:performer_update' performer.pk %}" class="btn btn-small">Редактировать</a>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-center">Нет преподавателей</p>
+    {% endfor %}
+</div>
+{% endblock %}

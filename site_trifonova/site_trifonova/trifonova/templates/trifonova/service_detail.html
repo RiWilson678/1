@@ -1,0 +1,21 @@
+{% extends 'trifonova/base.html' %}
+
+{% block title %}{{ service.name }}{% endblock %}
+
+{% block content %}
+<div class="detail-view">
+    <h1>💃 {{ service.name }}</h1>
+    
+    <div class="detail-info">
+        <p><strong>Название:</strong> {{ service.name }}</p>
+        <p><strong>Описание:</strong> {{ service.description }}</p>
+        <p><strong>Длительность:</strong> {{ service.attribute_2 }} ч.</p>
+        <p><strong>Цена:</strong> {{ service.price }} руб.</p>
+    </div>
+    
+    <div class="detail-actions">
+        <a href="{% url 'trifonova:service_update' service.pk %}" class="btn btn-primary">✏️ Редактировать</a>
+        <a href="{% url 'trifonova:service_list' %}" class="btn btn-secondary">← Назад к списку</a>
+    </div>
+</div>
+{% endblock %}

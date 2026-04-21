@@ -1,0 +1,20 @@
+{% extends 'trifonova/base.html' %}
+
+{% block title %}{{ performer.FIO }}{% endblock %}
+
+{% block content %}
+<div class="detail-view">
+    <h1>👨‍🏫 {{ performer.FIO }}</h1>
+    
+    <div class="detail-info">
+        <p><strong>ФИО:</strong> {{ performer.FIO }}</p>
+        <p><strong>Описание:</strong> {{ performer.description }}</p>
+        <p><strong>Направление:</strong> {{ performer.name.name }}</p>
+    </div>
+    
+    <div class="detail-actions">
+        <a href="{% url 'trifonova:performer_update' performer.pk %}" class="btn btn-primary">✏️ Редактировать</a>
+        <a href="{% url 'trifonova:performer_list' %}" class="btn btn-secondary">← Назад к списку</a>
+    </div>
+</div>
+{% endblock %}

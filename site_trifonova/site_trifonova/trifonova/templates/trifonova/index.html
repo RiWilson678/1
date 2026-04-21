@@ -1,0 +1,36 @@
+{% extends 'trifonova/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Добро пожаловать в школу танцев</h1>
+    <p>Откройте для себя мир танца вместе с нами</p>
+</div>
+
+<div class="cards-container">
+    <div class="card">
+        <h3>👥 Ученики</h3>
+        <p>Управление списком учеников школы</p>
+        <a href="{% url 'trifonova:user_list' %}" class="btn">Перейти →</a>
+    </div>
+    
+    <div class="card">
+        <h3>💃 Услуги</h3>
+        <p>Наши танцевальные направления</p>
+        <a href="{% url 'trifonova:service_list' %}" class="btn">Перейти →</a>
+    </div>
+    
+    <div class="card">
+        <h3>👨‍🏫 Преподаватели</h3>
+        <p>Наши профессиональные педагоги</p>
+        <a href="{% url 'trifonova:performer_list' %}" class="btn">Перейти →</a>
+    </div>
+    
+    <div class="card">
+        <h3>📋 Заказы</h3>
+        <p>Управление заказами на занятия</p>
+        <a href="{% url 'trifonova:order_list' %}" class="btn">Перейти →</a>
+    </div>
+</div>
+{% endblock %}

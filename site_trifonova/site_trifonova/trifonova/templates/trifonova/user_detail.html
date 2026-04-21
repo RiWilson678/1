@@ -1,0 +1,19 @@
+{% extends 'trifonova/base.html' %}
+
+{% block title %}Ученик: {{ user.FIO }}{% endblock %}
+
+{% block content %}
+<div class="detail-view">
+    <h1>👤 {{ user.FIO }}</h1>
+    
+    <div class="detail-info">
+        <p><strong>ФИО:</strong> {{ user.FIO }}</p>
+        <p><strong>Номер телефона:</strong> {{ user.namber }}</p>
+    </div>
+    
+    <div class="detail-actions">
+        <a href="{% url 'trifonova:user_update' user.pk %}" class="btn btn-primary">✏️ Редактировать</a>
+        <a href="{% url 'trifonova:user_list' %}" class="btn btn-secondary">← Назад к списку</a>
+    </div>
+</div>
+{% endblock %}
